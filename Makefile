@@ -6,28 +6,30 @@
 #    By: rfelicio <rfelicio@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 08:23:33 by rfelicio          #+#    #+#              #
-#    Updated: 2022/10/03 08:35:58 by rfelicio         ###   ########.fr        #
+#    Updated: 2022/10/03 10:04:27 by rfelicio         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= push_swap
+NAME		=	push_swap
 
-CC			= clang
-CC_FLAGS	= -Wall -Wextra -Werror -g3
+CC			=	clang
+CC_FLAGS	=	-Wall -Wextra -Werror -g3
 
-LEAK_FLAGS	= -fsanitize=address
+LEAK_FLAGS	=	-fsanitize=address
 
 ifeq ($(shell uname), Linux)
 	LEAK_FLAGS =
 endif
 
-FLAGS		= $(CC_FLAGS) $(LEAK_FLAGS)
+FLAGS		=	$(CC_FLAGS) $(LEAK_FLAGS)
 
-HEADERS_DIR	= ./includes
-HEADERS		= -I $(HEADERS_DIR)
+HEADERS_DIR	=	./includes
+HEADERS		=	 -I $(HEADERS_DIR)
 
-SRC_DIR		= ./src
-SRC			= $(SRC_DIR)/main.c
+SRC_DIR		=	./src
+SRC			=	$(SRC_DIR)/main.c					\
+				$(SRC_DIR)/ft_error.c				\
+				$(SRC_DIR)/ft_input_validating.c	\
 
 OBJ_DIR		= ./obj
 OBJ			= $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRC))
