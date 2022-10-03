@@ -6,7 +6,7 @@
 /*   By: rfelicio <rfelicio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 19:25:51 by rfelicio          #+#    #+#             */
-/*   Updated: 2022/10/03 19:13:33 by rfelicio         ###   ########.fr       */
+/*   Updated: 2022/10/03 20:20:12 by rfelicio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,12 @@ enum e_error_msg_codes
 typedef struct s_ps
 {
 	int	fl_error;
+	int	is_heap_allocated;
+	int	nbr_elements;
 }	t_ps;
+
+// Data handlers
+int		ft_ps_init(int argc, char **argv, t_ps *ps);
 
 // Error handlers
 void	ft_error(t_ps *ps);
