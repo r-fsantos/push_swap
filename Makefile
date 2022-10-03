@@ -6,7 +6,7 @@
 #    By: rfelicio <rfelicio@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 08:23:33 by rfelicio          #+#    #+#              #
-#    Updated: 2022/10/03 19:12:14 by rfelicio         ###   ########.fr        #
+#    Updated: 2022/10/03 20:20:39 by rfelicio         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,9 +37,9 @@ HEADERS_DIR	=	./includes
 HEADERS		=	 -I $(HEADERS_DIR) -I $(LIBFT_HEADERS)
 
 SRC_DIR		=	./src
-SRC			=	$(SRC_DIR)/main.c					\
-				$(SRC_DIR)/ft_error.c				\
-				$(SRC_DIR)/ft_input_validating.c	\
+SRC			=	$(SRC_DIR)/main.c				\
+				$(SRC_DIR)/ft_error.c			\
+				$(SRC_DIR)/ft_data_handlers.c	\
 
 OBJ_DIR		= ./obj
 OBJ			= $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRC))
