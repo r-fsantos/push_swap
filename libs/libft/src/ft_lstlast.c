@@ -1,35 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfelicio <rfelicio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/03 08:21:21 by rfelicio          #+#    #+#             */
-/*   Updated: 2022/10/03 19:21:07 by rfelicio         ###   ########.fr       */
+/*   Created: 2021/08/10 16:10:30 by rfelicio          #+#    #+#             */
+/*   Updated: 2021/08/10 16:56:06 by rfelicio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+#include "libft.h"
 
-/**
- * TODO: Validation steps
- * 		- is_number
- * 		- <= MAX_INT
- * 		- ?
- * 		- has_repeated_elements?
- **/
-int	main(int argc, char **argv)
+t_list	*ft_lstlast(t_list *lst)
 {
-	int		i;
-	t_ps	ps;
-
-	i = 0;
-	printf("%s\n", argv[0]);
-	while (argv[++i])
-		printf("|%s|\n", argv[i]);
-	if (!input_validating(argc, argv, &ps))
-		ft_error(&ps);
-	ft_putendl_fd("not error", 1);
-	return (0);
+	if (!lst)
+		return (NULL);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
 }

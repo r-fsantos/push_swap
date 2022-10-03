@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfelicio <rfelicio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/03 08:21:21 by rfelicio          #+#    #+#             */
-/*   Updated: 2022/10/03 19:21:07 by rfelicio         ###   ########.fr       */
+/*   Created: 2021/07/29 14:47:40 by rfelicio          #+#    #+#             */
+/*   Updated: 2021/08/11 19:15:42 by rfelicio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+#include "libft.h"
 
-/**
- * TODO: Validation steps
- * 		- is_number
- * 		- <= MAX_INT
- * 		- ?
- * 		- has_repeated_elements?
- **/
-int	main(int argc, char **argv)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	int		i;
-	t_ps	ps;
+	unsigned char	*dststart;
+	unsigned char	*srcstart;
 
-	i = 0;
-	printf("%s\n", argv[0]);
-	while (argv[++i])
-		printf("|%s|\n", argv[i]);
-	if (!input_validating(argc, argv, &ps))
-		ft_error(&ps);
-	ft_putendl_fd("not error", 1);
-	return (0);
+	if (!dst && !src)
+		return (NULL);
+	dststart = (unsigned char *)dst;
+	srcstart = (unsigned char *)src;
+	if (dststart <= srcstart)
+		ft_memcpy(dststart, srcstart, len);
+	else
+	{
+		while (len--)
+			*(dststart + len) = *(srcstart + len);
+	}
+	return (dst);
 }

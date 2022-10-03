@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfelicio <rfelicio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/03 08:21:21 by rfelicio          #+#    #+#             */
-/*   Updated: 2022/10/03 19:21:07 by rfelicio         ###   ########.fr       */
+/*   Created: 2021/08/10 12:36:15 by rfelicio          #+#    #+#             */
+/*   Updated: 2021/08/10 14:49:42 by rfelicio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+#include "libft.h"
 
-/**
- * TODO: Validation steps
- * 		- is_number
- * 		- <= MAX_INT
- * 		- ?
- * 		- has_repeated_elements?
- **/
-int	main(int argc, char **argv)
+t_list	*ft_lstnew(void *content)
 {
-	int		i;
-	t_ps	ps;
+	t_list	*element;
 
-	i = 0;
-	printf("%s\n", argv[0]);
-	while (argv[++i])
-		printf("|%s|\n", argv[i]);
-	if (!input_validating(argc, argv, &ps))
-		ft_error(&ps);
-	ft_putendl_fd("not error", 1);
-	return (0);
+	element = (t_list *)malloc(sizeof(t_list));
+	if (!element)
+		return (NULL);
+	element->content = content;
+	element->next = NULL;
+	return (element);
 }

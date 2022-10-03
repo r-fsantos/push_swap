@@ -3,9 +3,13 @@
 
 # Executable
 push_swap
+libft.a
 
 # Prerequisites
 *.d
+
+# Apple
+.DS_Store
 
 # Object files
 *.o

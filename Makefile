@@ -6,7 +6,7 @@
 #    By: rfelicio <rfelicio@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 08:23:33 by rfelicio          #+#    #+#              #
-#    Updated: 2022/10/03 10:04:27 by rfelicio         ###   ########.fr        #
+#    Updated: 2022/10/03 19:12:14 by rfelicio         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,10 +21,20 @@ ifeq ($(shell uname), Linux)
 	LEAK_FLAGS =
 endif
 
-FLAGS		=	$(CC_FLAGS) $(LEAK_FLAGS)
+# Libft
+LIBFT_DIR		:= ./libs/libft
+LIBFT_HEADERS 	:= $(LIBFT_DIR)/include
+LIBFT			:= $(LIBFT_DIR)/libft.a
+LIBFT_MAKE		:= make -C $(LIBFT_DIR)
+LIBFT_CLEAN		:= make clean -C $(LIBFT_DIR)
+LIBFT_FCLEAN	:= make fclean -C $(LIBFT_DIR)
+LIBFT_RE		:= make re -C $(LIBFT_DIR)
+LIBFT_FLAGS		:= -L $(LIBFT_DIR) -lft
+
+FLAGS		=	$(CC_FLAGS) $(LEAK_FLAGS) $(LIBFT_FLAGS)
 
 HEADERS_DIR	=	./includes
-HEADERS		=	 -I $(HEADERS_DIR)
+HEADERS		=	 -I $(HEADERS_DIR) -I $(LIBFT_HEADERS)
 
 SRC_DIR		=	./src
 SRC			=	$(SRC_DIR)/main.c					\
@@ -42,6 +52,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@echo
 
 $(NAME): $(OBJ_DIR) $(OBJ)
+	$(LIBFT_MAKE)
 	@echo "Linking..."
 	$(CC) $(FLAGS) $(OBJ) -o $(NAME) $(HEADERS)
 	@echo
@@ -51,6 +62,8 @@ $(OBJ_DIR):
 
 clean:
 	@echo "Cleaning object files..."
+	@echo
+	$(LIBFT_CLEAN)
 	@echo
 	@rm -rf $(OBJS_DIR)
 	@echo "Finished cleaning object files"

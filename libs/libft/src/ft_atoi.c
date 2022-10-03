@@ -1,35 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfelicio <rfelicio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/03 08:21:21 by rfelicio          #+#    #+#             */
-/*   Updated: 2022/10/03 19:21:07 by rfelicio         ###   ########.fr       */
+/*   Created: 2021/07/30 17:51:45 by rfelicio          #+#    #+#             */
+/*   Updated: 2021/07/30 19:28:46 by rfelicio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
-
-/**
- * TODO: Validation steps
- * 		- is_number
- * 		- <= MAX_INT
- * 		- ?
- * 		- has_repeated_elements?
- **/
-int	main(int argc, char **argv)
+static int	ft_isspace(const char c)
 {
-	int		i;
-	t_ps	ps;
+	return (c == 0x20 || (c >= 0x09 && c <= 0x0d));
+}
 
-	i = 0;
-	printf("%s\n", argv[0]);
-	while (argv[++i])
-		printf("|%s|\n", argv[i]);
-	if (!input_validating(argc, argv, &ps))
-		ft_error(&ps);
-	ft_putendl_fd("not error", 1);
-	return (0);
+int	ft_atoi(const char *str)
+{
+	int	res;
+	int	sgn;
+
+	res = 0;
+	sgn = 1;
+	while (ft_isspace(*str))
+		str++;
+	if (*str == '-' || *str == '+')
+	{
+		if (*str == '-')
+			sgn *= -1;
+		str++;
+	}
+	while (*str >= '0' && *str <= '9')
+	{
+		res = res * 10 + (*str - '0');
+		str++;
+	}
+	return (sgn * res);
 }

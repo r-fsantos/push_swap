@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfelicio <rfelicio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/03 08:21:21 by rfelicio          #+#    #+#             */
-/*   Updated: 2022/10/03 19:21:07 by rfelicio         ###   ########.fr       */
+/*   Created: 2021/07/27 19:49:36 by rfelicio          #+#    #+#             */
+/*   Updated: 2021/08/04 21:39:55 by rfelicio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+#include "libft.h"
 
-/**
- * TODO: Validation steps
- * 		- is_number
- * 		- <= MAX_INT
- * 		- ?
- * 		- has_repeated_elements?
- **/
-int	main(int argc, char **argv)
+/*
+** DESCRIPTION: fill a byte string with a byte value
+**
+** BEHAVIOUR: Writes len bytes of value c (converted to an unsigned char) 
+** to the string b.
+**
+** RETURN VALUES: (void) b
+*/
+
+void	*ft_memset(void *b, int c, size_t len)
 {
-	int		i;
-	t_ps	ps;
+	unsigned char	*ptr;
 
-	i = 0;
-	printf("%s\n", argv[0]);
-	while (argv[++i])
-		printf("|%s|\n", argv[i]);
-	if (!input_validating(argc, argv, &ps))
-		ft_error(&ps);
-	ft_putendl_fd("not error", 1);
-	return (0);
+	ptr = (unsigned char *)b;
+	while (len--)
+		*ptr++ = (unsigned char)c;
+	return (b);
 }

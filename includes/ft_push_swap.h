@@ -6,7 +6,7 @@
 /*   By: rfelicio <rfelicio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 19:25:51 by rfelicio          #+#    #+#             */
-/*   Updated: 2022/10/03 10:05:53 by rfelicio         ###   ########.fr       */
+/*   Updated: 2022/10/03 19:13:33 by rfelicio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
+# include "../libs/libft/include/libft.h"
 
 # define ERROR "Error\n"
 # define INTEGER "One should provide only integers as input to push_swap"

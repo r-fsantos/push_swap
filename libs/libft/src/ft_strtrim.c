@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfelicio <rfelicio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/03 08:21:21 by rfelicio          #+#    #+#             */
-/*   Updated: 2022/10/03 19:21:07 by rfelicio         ###   ########.fr       */
+/*   Created: 2021/07/31 13:18:14 by rfelicio          #+#    #+#             */
+/*   Updated: 2021/08/02 16:33:36 by rfelicio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+#include "libft.h"
 
-/**
- * TODO: Validation steps
- * 		- is_number
- * 		- <= MAX_INT
- * 		- ?
- * 		- has_repeated_elements?
- **/
-int	main(int argc, char **argv)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	int		i;
-	t_ps	ps;
+	size_t	start;
+	size_t	s1len;
 
-	i = 0;
-	printf("%s\n", argv[0]);
-	while (argv[++i])
-		printf("|%s|\n", argv[i]);
-	if (!input_validating(argc, argv, &ps))
-		ft_error(&ps);
-	ft_putendl_fd("not error", 1);
-	return (0);
+	if (!s1 || !set)
+		return (NULL);
+	start = 0;
+	s1len = ft_strlen(s1);
+	while (s1[start] && (ft_strchr(set, s1[start])))
+		++start;
+	while (s1len && (ft_strchr(set, s1[s1len])))
+		--s1len;
+	return (ft_substr(s1, start, s1len - start + 1));
 }
