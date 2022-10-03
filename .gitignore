@@ -1,3 +1,9 @@
+# IDE
+.vscode/
+
+# Executable
+push_swap
+
 # Prerequisites
 *.d
 
