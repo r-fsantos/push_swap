@@ -6,7 +6,7 @@
 /*   By: rfelicio <rfelicio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 10:03:04 by rfelicio          #+#    #+#             */
-/*   Updated: 2022/10/03 20:22:59 by rfelicio         ###   ########.fr       */
+/*   Updated: 2022/10/03 22:59:29 by rfelicio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,22 +27,6 @@ int	ft_ps_init(int argc, char **argv, t_ps *ps)
 	return (true);
 }
 
-// static int	are_all_arguments_numbers(int argc, char **argv, t_ps *ps)
-// {
-// 	ft_putendl_fd(argc, 1);
-// 	ft_putendl_fd(argv[0]);
-// 	ps->fl_error = false;
-// 	return (true);
-// }
-
-// static int	nbrs_are_in_valid_range(int argc, char **argv, t_ps *ps)
-// {
-// 	argc += 0;
-// 	ft_putendl_fd(argv[0], 1);
-// 	ps->fl_error = false;
-// 	return (true);
-// }
-
 /**
  * TODO: Validation steps
  * 		- is_number
@@ -52,10 +36,12 @@ int	ft_ps_init(int argc, char **argv, t_ps *ps)
  **/
 int	input_validating(int argc, char **argv, t_ps *ps)
 {
-	if (argc == 1 && argv)
-	{
-		ps->fl_error = e_should_not_display_error;
-		return (false);
-	}
+	int	i;
+
+	i = 1;
+	ft_putendl_fd("testing input validating", 1);
+	while (i < argc)
+		if (!is_number(argv[i++], ps))
+			return (false);
 	return (true);
 }

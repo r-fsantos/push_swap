@@ -6,7 +6,7 @@
 /*   By: rfelicio <rfelicio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 19:25:51 by rfelicio          #+#    #+#             */
-/*   Updated: 2022/10/03 20:20:12 by rfelicio         ###   ########.fr       */
+/*   Updated: 2022/10/03 22:58:51 by rfelicio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ enum e_error_msg_codes
 	e_should_not_display_error,
 	e_no_error,
 	e_bad_input,
+	e_input_must_be_integers,
 };
 
 // Structs
@@ -49,10 +50,20 @@ typedef struct s_ps
 // Data handlers
 int		ft_ps_init(int argc, char **argv, t_ps *ps);
 
+// Arg parsers
+int		nbrs_are_in_valid_range(int argc, char **argv, t_ps *ps);
+int		are_all_arguments_numbers(int argc, char **argv, t_ps *ps);
+
 // Error handlers
 void	ft_error(t_ps *ps);
+int		set_error(int error_code, t_ps *ps);
 
 // Input validators
 int		input_validating(int argc, char **argv, t_ps *ps);
+
+// Numbers
+int		is_plus_or_minus(char c);
+int		is_zero(char c);
+int		is_number(char *nbr, t_ps *ps);
 
 #endif
