@@ -6,7 +6,7 @@
 /*   By: rfelicio <rfelicio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/26 16:13:03 by rfelicio          #+#    #+#             */
-/*   Updated: 2022/07/13 21:08:06 by rfelicio         ###   ########.fr       */
+/*   Updated: 2022/10/04 10:04:15 by rfelicio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_list
 ** Part 1 - Libc functions
 */
 int		ft_isalpha(int c);
+int		ft_isspace(const char c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);
@@ -48,6 +49,7 @@ void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 int		ft_atoi(const char *str);
+long	ft_atol(const char *str);
 
 /*
 ** Part 2 - Additional functions

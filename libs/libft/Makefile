@@ -6,7 +6,7 @@
 #    By: rfelicio <rfelicio@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/26 15:30:16 by rfelicio          #+#    #+#              #
-#    Updated: 2022/07/13 21:09:34 by rfelicio         ###   ########.fr        #
+#    Updated: 2022/10/04 10:04:47 by rfelicio         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ INCLUDES		=	./include
 SRC_DIR			=	./src
 SRC				=	$(SRC_DIR)/ft_isalpha.c			\
 					$(SRC_DIR)/ft_isdigit.c			\
+					$(SRC_DIR)/ft_isspace.c			\
 					$(SRC_DIR)/ft_isalnum.c			\
 					$(SRC_DIR)/ft_isascii.c			\
 					$(SRC_DIR)/ft_isprint.c			\
@@ -48,6 +49,7 @@ SRC				=	$(SRC_DIR)/ft_isalpha.c			\
 					$(SRC_DIR)/ft_memcmp.c			\
 					$(SRC_DIR)/ft_strnstr.c			\
 					$(SRC_DIR)/ft_atoi.c			\
+					$(SRC_DIR)/ft_atol.c			\
 					$(SRC_DIR)/ft_calloc.c			\
 					$(SRC_DIR)/ft_strdup.c			\
 					$(SRC_DIR)/ft_substr.c			\

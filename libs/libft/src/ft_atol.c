@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfelicio <rfelicio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/30 17:51:45 by rfelicio          #+#    #+#             */
-/*   Updated: 2022/10/04 10:03:18 by rfelicio         ###   ########.fr       */
+/*   Created: 2022/10/04 10:02:21 by rfelicio          #+#    #+#             */
+/*   Updated: 2022/10/04 10:25:48 by rfelicio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+long	ft_atol(const char *str)
 {
-	int	res;
-	int	sgn;
+	long	res;
+	int		sgn;
 
 	res = 0;
 	sgn = 1;
