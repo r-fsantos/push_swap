@@ -6,7 +6,7 @@
 /*   By: rfelicio <rfelicio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 10:03:04 by rfelicio          #+#    #+#             */
-/*   Updated: 2022/10/03 22:59:29 by rfelicio         ###   ########.fr       */
+/*   Updated: 2022/10/04 19:55:44 by rfelicio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,14 @@ int	ft_ps_init(int argc, char **argv, t_ps *ps)
 }
 
 /**
- * TODO: Validation steps
- * 		- is_number
- * 		- <= MAX_INT
- * 		- ?
- * 		- has_repeated_elements?
+ * TODO: rename to is_valid_input
+ * TODO: has_repeated_elements? -> bubble sort
  **/
 int	input_validating(int argc, char **argv, t_ps *ps)
 {
 	int	i;
 
 	i = 1;
-	ft_putendl_fd("testing input validating", 1);
 	while (i < argc)
 		if (!is_number(argv[i++], ps))
 			return (false);

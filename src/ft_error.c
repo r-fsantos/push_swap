@@ -6,7 +6,7 @@
 /*   By: rfelicio <rfelicio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 09:56:36 by rfelicio          #+#    #+#             */
-/*   Updated: 2022/10/03 23:03:51 by rfelicio         ###   ########.fr       */
+/*   Updated: 2022/10/04 09:40:27 by rfelicio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	ft_error(t_ps *ps)
 		exit(0);
 	if (ps->fl_error == e_input_must_be_integers)
 		ft_putendl_fd(ERROR INTEGER, 2);
+	if (ps->fl_error == e_invalid_nbr_len)
+		ft_putendl_fd(ERROR INTEGER_LEN, 2);
 	exit(0);
 }
 

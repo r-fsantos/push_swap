@@ -6,7 +6,7 @@
 #    By: rfelicio <rfelicio@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 08:23:33 by rfelicio          #+#    #+#              #
-#    Updated: 2022/10/03 22:59:18 by rfelicio         ###   ########.fr        #
+#    Updated: 2022/10/04 19:49:09 by rfelicio         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,6 @@ HEADERS		=	 -I $(HEADERS_DIR) -I $(LIBFT_HEADERS)
 
 SRC_DIR		=	./src
 SRC			=	$(SRC_DIR)/main.c				\
-				$(SRC_DIR)/ft_arg_parsers.c		\
 				$(SRC_DIR)/ft_data_handlers.c	\
 				$(SRC_DIR)/ft_error.c			\
 				$(SRC_DIR)/ft_nbr.c				\

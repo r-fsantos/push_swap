@@ -6,7 +6,7 @@
 /*   By: rfelicio <rfelicio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 19:25:51 by rfelicio          #+#    #+#             */
-/*   Updated: 2022/10/03 22:58:51 by rfelicio         ###   ########.fr       */
+/*   Updated: 2022/10/04 10:27:42 by rfelicio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,13 @@
 
 # define ERROR "Error\n"
 # define INTEGER "One should provide only integers as input to push_swap"
+# define INTEGER_LEN "Invalid input range"
 # define BAD_INPUT "Your input: \n"
 # define MEMORY_ERROR "Error to allocate memory"
 # define USAGE_MSG "push_swap usage: ./puss_swap n1 n2 n3 ... nn"
+# define INT_MAX 2147483647
+# define INT_MIN -2147483648
+# define INT_MAX_LEN 10
 
 // Enums
 enum e_bool
@@ -33,10 +37,11 @@ enum e_bool
 
 enum e_error_msg_codes
 {
-	e_should_not_display_error,
 	e_no_error,
 	e_bad_input,
+	e_should_not_display_error,
 	e_input_must_be_integers,
+	e_invalid_nbr_len,
 };
 
 // Structs
