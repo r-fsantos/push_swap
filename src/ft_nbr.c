@@ -6,7 +6,7 @@
 /*   By: rfelicio <rfelicio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 22:55:54 by rfelicio          #+#    #+#             */
-/*   Updated: 2022/10/04 19:55:11 by rfelicio         ###   ########.fr       */
+/*   Updated: 2022/10/04 20:16:38 by rfelicio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,6 @@
  *	OK - parse zeros -> yes
  *	OK - is_integer?
  *	OK - is_valid_range?
- *	TODO: Parse "            00000000016"
- *	TODO: Abstract while (is*) into functions, in order to be used later on
- *	TODO: Ads abstractions into libft project
  * 	printf("INT CANDIDATE: %ld\n", int_candidate);
  **/
 int	is_integer(char *nbr, int signal)
