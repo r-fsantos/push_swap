@@ -6,7 +6,7 @@
 #    By: rfelicio <rfelicio@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 08:23:33 by rfelicio          #+#    #+#              #
-#    Updated: 2022/10/04 19:49:09 by rfelicio         ###   ########.fr        #
+#    Updated: 2022/10/06 13:37:51 by rfelicio         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,8 @@ SRC_DIR		=	./src
 SRC			=	$(SRC_DIR)/main.c				\
 				$(SRC_DIR)/ft_data_handlers.c	\
 				$(SRC_DIR)/ft_error.c			\
+				$(SRC_DIR)/ft_mem_alloc.c		\
+				$(SRC_DIR)/ft_mem_dealloc.c		\
 				$(SRC_DIR)/ft_nbr.c				\
 
 OBJ_DIR		= ./obj

@@ -6,7 +6,7 @@
 /*   By: rfelicio <rfelicio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 10:03:04 by rfelicio          #+#    #+#             */
-/*   Updated: 2022/10/04 20:31:18 by rfelicio         ###   ########.fr       */
+/*   Updated: 2022/10/06 13:58:53 by rfelicio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,14 @@ int	ft_ps_init(int argc, char **argv, t_ps *ps)
 	return (true);
 }
 
-static **int	get_nbrs_from(int args, char **arr, t_ps *ps)
-{
-	// converte [String] -> [Int]
-	// erro: desaloca ate onde allocou e retorna NULL
-}
-
-static int	has_repeated_elements(int **nbrs, t_ps *ps)
-{
-	// encontrou elemento repetido
-	// desaloca que foi alocado e retorna falso
-	// se estiver no caminho feliz, retorna true
-}
+// static int	has_repeated_elements(int **nbrs, t_ps *ps)
+// {
+// 	// verificar !nbrs || !*nbrs
+// 		// return (set_error(...))
+// 	// encontrou elemento repetido
+// 	// desaloca que foi alocado e retorna falso
+// 	// se estiver no caminho feliz, retorna true
+// }
 
 /**
  * TODO: rename to is_valid_input
@@ -57,7 +53,10 @@ int	input_validating(int argc, char **argv, t_ps *ps)
 	nbrs = get_nbrs_from(argc - 1, &argv[1], ps);
 	if (!nbrs || !*nbrs)
 		return (false);
-	if (has_repeated_elements(nbr))
+	// if (has_repeated_elements(nbr))
+		// deallocate nbrs
+		// set error
+		// return false
 	// guarda elementos para posterior normalização
 	return (true);
 }

@@ -6,7 +6,7 @@
 /*   By: rfelicio <rfelicio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 19:25:51 by rfelicio          #+#    #+#             */
-/*   Updated: 2022/10/04 10:27:42 by rfelicio         ###   ########.fr       */
+/*   Updated: 2022/10/06 18:51:04 by rfelicio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ enum e_error_msg_codes
 	e_should_not_display_error,
 	e_input_must_be_integers,
 	e_invalid_nbr_len,
+	e_mem_allocation,
 };
 
 // Structs
@@ -53,22 +54,21 @@ typedef struct s_ps
 }	t_ps;
 
 // Data handlers
-int		ft_ps_init(int argc, char **argv, t_ps *ps);
+int			ft_ps_init(int argc, char **argv, t_ps *ps);
 
 // Arg parsers
-int		nbrs_are_in_valid_range(int argc, char **argv, t_ps *ps);
-int		are_all_arguments_numbers(int argc, char **argv, t_ps *ps);
 
 // Error handlers
-void	ft_error(t_ps *ps);
-int		set_error(int error_code, t_ps *ps);
+void		ft_error(t_ps *ps);
+int			set_error(int error_code, t_ps *ps);
 
 // Input validators
-int		input_validating(int argc, char **argv, t_ps *ps);
+int			input_validating(int argc, char **argv, t_ps *ps);
 
 // Numbers
-int		is_plus_or_minus(char c);
-int		is_zero(char c);
-int		is_number(char *nbr, t_ps *ps);
+
+// Memory
+void		ft_doublefree_size(void **arr, int to_be_freed);
+int			**ft_malloc_nbrs(int args, t_ps *ps);
 
 #endif

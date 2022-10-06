@@ -6,20 +6,33 @@
 /*   By: rfelicio <rfelicio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 22:55:54 by rfelicio          #+#    #+#             */
-/*   Updated: 2022/10/04 20:16:38 by rfelicio         ###   ########.fr       */
+/*   Updated: 2022/10/06 18:50:15 by rfelicio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-/**
- *	KO - parse spaces
- *	OK - has any thing beyond of + - integer
- *	OK - parse zeros -> yes
- *	OK - is_integer?
- *	OK - is_valid_range?
- * 	printf("INT CANDIDATE: %ld\n", int_candidate);
- **/
+t_nbr_info	get_nbr_info(char *nbr)
+{
+	t_nbr_info	ret;
+	int			signal;
+	int			i;
+
+	i = 0;
+	signal = 1;
+	while (ft_isspace(nbr[i]))
+		i++;
+	while (is_plus_or_minus(nbr[i]))
+		if (nbr[i++] == '-')
+			signal *= -1;
+	while (is_zero(nbr[i]))
+		i++;
+	ret.offset = i;
+	ret.signal = signal;
+	return (ret);
+}
+
+// printf("INT CANDIDATE: %ld\n", int_candidate);
 int	is_integer(char *nbr, int signal)
 {
 	long	int_candidate;
@@ -32,32 +45,54 @@ int	is_integer(char *nbr, int signal)
 	return (true);
 }
 
-/**
- * TODO: Reuse parsing logic:
- * 			- convert nbr to remove duplicates
- * 			- normalize data to be used within sorting algorithms
- * TODO: Refactor ft_atol to parse more than one +- signals
- **/
 int	is_number(char *nbr, t_ps *ps)
 {
-	int	i;
-	int	j;
-	int	signal;
+	int			i;
+	int			offset;
+	int			signal;
+	t_nbr_info	nbr_info;
 
-	i = 0;
-	signal = 1;
-	while (ft_isspace(nbr[i]))
-		i++;
-	while (is_plus_or_minus(nbr[i]))
-		if (nbr[i++] == '-')
-			signal *= -1;
-	while (is_zero(nbr[i]))
-		i++;
-	j = i;
-	while (nbr[j])
-		if (!ft_isdigit(nbr[j++]))
+	nbr_info = get_nbr_info(nbr);
+	offset = nbr_info.offset;
+	i = offset;
+	signal = nbr_info.signal;
+	while (nbr[i])
+		if (!ft_isdigit(nbr[i++]))
 			return (set_error(e_input_must_be_integers, ps));
-	if (!is_integer(&nbr[i], signal))
+	if (!is_integer(&nbr[offset], signal))
 		return (set_error(e_invalid_nbr_len, ps));
 	return (true);
+}
+
+int	get_nbr_from(char *str)
+{
+	int			nbr;
+	int			offset;
+	int			signal;
+	t_nbr_info	nbr_info;
+
+	nbr_info = get_nbr_info(str);
+	offset = nbr_info.offset;
+	signal = nbr_info.signal;
+	nbr = ft_atoi(str + offset);
+	return (signal * nbr);
+}
+
+/** 
+ * printf("nbr: %d\n\n", *nbrs[i]);
+ * TODO: Remove error knowledge from ft_malloc_nbrs.
+ *       Create a function set_null_error(error_code, ps) -> NULL
+ **/
+int	**get_nbrs_from(int args, char **arr, t_ps *ps)
+{
+	int	**nbrs;
+	int	i;
+
+	nbrs = ft_malloc_nbrs(args, ps);
+	if (!nbrs || !*nbrs)
+		return (NULL);
+	i = -1;
+	while (++i < args)
+		*nbrs[i] = get_nbr_from(arr[i]);
+	return (nbrs);
 }
