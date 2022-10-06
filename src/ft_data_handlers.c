@@ -6,26 +6,11 @@
 /*   By: rfelicio <rfelicio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 10:03:04 by rfelicio          #+#    #+#             */
-/*   Updated: 2022/10/06 13:58:53 by rfelicio         ###   ########.fr       */
+/*   Updated: 2022/10/06 19:00:26 by rfelicio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
-
-/**
- * TODO: Use malloc?
- **/
-int	ft_ps_init(int argc, char **argv, t_ps *ps)
-{
-	if (argc == 1 && argv)
-	{
-		ps->fl_error = e_should_not_display_error;
-		return (false);
-	}
-	ps->is_heap_allocated = false;
-	ps->nbr_elements = argc - 1;
-	return (true);
-}
 
 // static int	has_repeated_elements(int **nbrs, t_ps *ps)
 // {
