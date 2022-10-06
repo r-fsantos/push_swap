@@ -5,6 +5,9 @@
 push_swap
 libft.a
 
+# POCs
+poc**
+
 # Prerequisites
 *.d
 
