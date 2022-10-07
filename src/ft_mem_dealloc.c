@@ -6,11 +6,17 @@
 /*   By: rfelicio <rfelicio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 13:36:59 by rfelicio          #+#    #+#             */
-/*   Updated: 2022/10/06 13:37:15 by rfelicio         ###   ########.fr       */
+/*   Updated: 2022/10/07 07:40:04 by rfelicio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
+
+void	ft_free(void *arr)
+{
+	free(arr);
+	arr = NULL;
+}
 
 void	ft_doublefree_size(void **arr, int to_be_freed)
 {

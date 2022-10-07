@@ -6,7 +6,7 @@
 /*   By: rfelicio <rfelicio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 22:55:54 by rfelicio          #+#    #+#             */
-/*   Updated: 2022/10/06 23:27:33 by rfelicio         ###   ########.fr       */
+/*   Updated: 2022/10/07 07:37:28 by rfelicio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,21 +78,19 @@ int	get_nbr_from(char *str)
 	return (signal * nbr);
 }
 
-/** 
- * printf("nbr: %d\n\n", *nbrs[i]);
- * TODO: Remove error knowledge from ft_malloc_nbrs.
- *       Create a function set_null_error(error_code, ps) -> NULL
- **/
-int	**get_nbrs_from(char **arr, int args, t_ps *ps)
+int	*get_nbrs_from(char **arr, int args, t_ps *ps)
 {
-	int	**nbrs;
+	int	*nbrs;
 	int	i;
 
-	nbrs = ft_malloc_nbrs(args, ps);
-	if (!nbrs || !*nbrs)
+	nbrs = ft_calloc(args + 1, sizeof(int));
+	if (!nbrs)
+	{
+		ps->fl_error = e_mem_allocation;
 		return (NULL);
+	}
 	i = -1;
 	while (++i < args)
-		*nbrs[i] = get_nbr_from(arr[i]);
+		nbrs[i] = get_nbr_from(arr[i]);
 	return (nbrs);
 }
