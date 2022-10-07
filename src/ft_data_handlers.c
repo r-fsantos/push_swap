@@ -6,42 +6,55 @@
 /*   By: rfelicio <rfelicio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 10:03:04 by rfelicio          #+#    #+#             */
-/*   Updated: 2022/10/06 19:00:26 by rfelicio         ###   ########.fr       */
+/*   Updated: 2022/10/06 23:31:14 by rfelicio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-// static int	has_repeated_elements(int **nbrs, t_ps *ps)
-// {
-// 	// verificar !nbrs || !*nbrs
-// 		// return (set_error(...))
-// 	// encontrou elemento repetido
-// 	// desaloca que foi alocado e retorna falso
-// 	// se estiver no caminho feliz, retorna true
-// }
+// printf("*nbrs[%d] ==? *nbrs[%d]\n", *nbrs[i], *nbrs[j]);
+int	has_repeated_elements(int **nbrs, int len)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < len)
+	{
+		j = i + 1;
+		while (j < len)
+		{
+			if (*nbrs[i] == *nbrs[j])
+				return (true);
+			j++;
+		}
+		i++;
+	}
+	return (false);
+}
 
 /**
  * TODO: rename to is_valid_input
- * TODO: has_repeated_elements? -> bubble sort
  **/
 int	input_validating(int argc, char **argv, t_ps *ps)
 {
 	int	i;
 	int	**nbrs;
+	int	nbrs_len;
 
 	i = 1;
 	while (i < argc)
 		if (!is_number(argv[i++], ps))
 			return (false);
-	i = 1;
-	nbrs = get_nbrs_from(argc - 1, &argv[1], ps);
+	nbrs_len = ps->nbrs_len;
+	nbrs = get_nbrs_from(&argv[1], nbrs_len, ps);
 	if (!nbrs || !*nbrs)
 		return (false);
-	// if (has_repeated_elements(nbr))
-		// deallocate nbrs
-		// set error
-		// return false
-	// guarda elementos para posterior normalização
+	if (has_repeated_elements(nbrs, nbrs_len))
+	{
+		ft_doublefree_size((void **)nbrs, nbrs_len);
+		return (set_error(e_has_repeated_nbrs, ps));
+	}
+	ps->nbrs_non_normalized = nbrs;
 	return (true);
 }

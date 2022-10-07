@@ -6,7 +6,7 @@
 /*   By: rfelicio <rfelicio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 19:25:51 by rfelicio          #+#    #+#             */
-/*   Updated: 2022/10/06 18:51:04 by rfelicio         ###   ########.fr       */
+/*   Updated: 2022/10/06 23:31:31 by rfelicio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,11 @@ enum e_bool
 enum e_error_msg_codes
 {
 	e_no_error,
-	e_bad_input,
 	e_should_not_display_error,
 	e_input_must_be_integers,
 	e_invalid_nbr_len,
 	e_mem_allocation,
+	e_has_repeated_nbrs,
 };
 
 // Structs
@@ -50,13 +50,21 @@ typedef struct s_ps
 {
 	int	fl_error;
 	int	is_heap_allocated;
-	int	nbr_elements;
+	int	nbrs_len;
+	int	**nbrs_non_normalized;
 }	t_ps;
+
+typedef struct s_nbr_info
+{
+	int	offset;
+	int	signal;
+}	t_nbr_info;
 
 // Data handlers
 int			ft_ps_init(int argc, char **argv, t_ps *ps);
 
 // Arg parsers
+int			has_repeated_elements(int **nbrs, int len);
 
 // Error handlers
 void		ft_error(t_ps *ps);
@@ -66,6 +74,10 @@ int			set_error(int error_code, t_ps *ps);
 int			input_validating(int argc, char **argv, t_ps *ps);
 
 // Numbers
+int			is_number(char *nbr, t_ps *ps);
+t_nbr_info	get_nbr_info(char *nbr);
+int			get_nbr_from(char *str);
+int			**get_nbrs_from(char **arr, int args, t_ps *ps);
 
 // Memory
 void		ft_doublefree_size(void **arr, int to_be_freed);

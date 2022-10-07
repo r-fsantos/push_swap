@@ -83,7 +83,7 @@ int	get_nbr_from(char *str)
  * TODO: Remove error knowledge from ft_malloc_nbrs.
  *       Create a function set_null_error(error_code, ps) -> NULL
  **/
-int	**get_nbrs_from(int args, char **arr, t_ps *ps)
+int	**get_nbrs_from(char **arr, int args, t_ps *ps)
 {
 	int	**nbrs;
 	int	i;
