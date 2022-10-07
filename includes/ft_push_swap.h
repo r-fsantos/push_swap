@@ -6,7 +6,7 @@
 /*   By: rfelicio <rfelicio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 19:25:51 by rfelicio          #+#    #+#             */
-/*   Updated: 2022/10/07 07:43:05 by rfelicio         ###   ########.fr       */
+/*   Updated: 2022/10/07 20:02:23 by rfelicio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void		ft_error(t_ps *ps);
 int			set_error(int error_code, t_ps *ps);
 
 // Input validators
-int			input_validating(int argc, char **argv, t_ps *ps);
+int			input_validation(int argc, char **argv, t_ps *ps);
 
 // Numbers
 int			is_number(char *nbr, t_ps *ps);

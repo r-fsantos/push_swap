@@ -6,7 +6,7 @@
 /*   By: rfelicio <rfelicio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 10:03:04 by rfelicio          #+#    #+#             */
-/*   Updated: 2022/10/07 07:43:51 by rfelicio         ###   ########.fr       */
+/*   Updated: 2022/10/07 20:02:27 by rfelicio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,7 @@ int	has_repeated_elements(int *nbrs, int len)
 	return (false);
 }
 
-/**
- * TODO: rename to is_valid_input
- **/
-int	input_validating(int argc, char **argv, t_ps *ps)
+int	input_validation(int argc, char **argv, t_ps *ps)
 {
 	int	i;
 	int	*nbrs;
