@@ -6,7 +6,7 @@
 #    By: rfelicio <rfelicio@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 08:23:33 by rfelicio          #+#    #+#              #
-#    Updated: 2022/10/06 19:01:03 by rfelicio         ###   ########.fr        #
+#    Updated: 2022/10/07 13:00:25 by coder            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,7 +58,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 $(NAME): $(OBJ_DIR) $(OBJ)
 	$(LIBFT_MAKE)
 	@echo "Linking..."
-	$(CC) $(FLAGS) $(OBJ) -o $(NAME) $(HEADERS)
+	$(CC) $(OBJ) $(FLAGS) -o $(NAME) $(HEADERS)
 	@echo
 
 $(OBJ_DIR):
