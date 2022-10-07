@@ -6,7 +6,7 @@
 /*   By: rfelicio <rfelicio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 19:25:51 by rfelicio          #+#    #+#             */
-/*   Updated: 2022/10/07 20:02:23 by rfelicio         ###   ########.fr       */
+/*   Updated: 2022/10/07 20:49:45 by rfelicio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ typedef struct s_ps
 	int	is_heap_allocated;
 	int	nbrs_len;
 	int	*nbrs_non_normalized;
+	int	*nbrs;
 }	t_ps;
 
 typedef struct s_nbr_info
@@ -63,6 +64,7 @@ typedef struct s_nbr_info
 
 // Data handlers
 int			ft_ps_init(int argc, char **argv, t_ps *ps);
+int			nbrs_normalization(t_ps *ps);
 
 // Arg parsers
 int			has_repeated_elements(int *nbrs, int len);

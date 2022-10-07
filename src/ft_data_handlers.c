@@ -6,7 +6,7 @@
 /*   By: rfelicio <rfelicio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 10:03:04 by rfelicio          #+#    #+#             */
-/*   Updated: 2022/10/07 20:02:27 by rfelicio         ###   ########.fr       */
+/*   Updated: 2022/10/07 20:48:30 by rfelicio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,42 @@ int	input_validation(int argc, char **argv, t_ps *ps)
 		return (set_error(e_has_repeated_nbrs, ps));
 	}
 	ps->nbrs_non_normalized = nbrs;
+	return (true);
+}
+
+/**
+ * 	i = -1;
+ * printf("NON NORMALIZED!!!\n");
+ * while (++i < ps->nbrs_len)
+ * 	printf("nbrs[%d] = %d\n", i, ps->nbrs_non_normalized[i]);
+ * printf("\n\n");
+ *
+ * 	i = -1;
+ * printf("NORMALIZED!!!\n");
+ * while (++i < ps->nbrs_len)
+ * 	printf("nbrs[%d] = %d\n", i, ps->nbrs[i]);
+ * printf("\n\n");
+ **/
+int	nbrs_normalization(t_ps *ps)
+{
+	int	i;
+	int	j;
+	int	index;
+	int	*nbrs;
+
+	nbrs = malloc(sizeof(int) * ps->nbrs_len);
+	if (!nbrs)
+		return (set_error(e_mem_allocation, ps));
+	i = -1;
+	while (++i < ps->nbrs_len)
+	{
+		j = -1;
+		index = 0;
+		while (++j < ps->nbrs_len)
+			if (ps->nbrs_non_normalized[i] > ps->nbrs_non_normalized[j])
+				index++;
+		nbrs[i] = index;
+	}
+	ps->nbrs = nbrs;
 	return (true);
 }
