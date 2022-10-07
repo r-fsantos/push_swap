@@ -6,14 +6,14 @@
 /*   By: rfelicio <rfelicio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 10:03:04 by rfelicio          #+#    #+#             */
-/*   Updated: 2022/10/06 23:31:14 by rfelicio         ###   ########.fr       */
+/*   Updated: 2022/10/07 07:43:51 by rfelicio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
 // printf("*nbrs[%d] ==? *nbrs[%d]\n", *nbrs[i], *nbrs[j]);
-int	has_repeated_elements(int **nbrs, int len)
+int	has_repeated_elements(int *nbrs, int len)
 {
 	int	i;
 	int	j;
@@ -24,7 +24,7 @@ int	has_repeated_elements(int **nbrs, int len)
 		j = i + 1;
 		while (j < len)
 		{
-			if (*nbrs[i] == *nbrs[j])
+			if (nbrs[i] == nbrs[j])
 				return (true);
 			j++;
 		}
@@ -39,7 +39,7 @@ int	has_repeated_elements(int **nbrs, int len)
 int	input_validating(int argc, char **argv, t_ps *ps)
 {
 	int	i;
-	int	**nbrs;
+	int	*nbrs;
 	int	nbrs_len;
 
 	i = 1;
@@ -52,7 +52,7 @@ int	input_validating(int argc, char **argv, t_ps *ps)
 		return (false);
 	if (has_repeated_elements(nbrs, nbrs_len))
 	{
-		ft_doublefree_size((void **)nbrs, nbrs_len);
+		ft_free(nbrs);
 		return (set_error(e_has_repeated_nbrs, ps));
 	}
 	ps->nbrs_non_normalized = nbrs;
