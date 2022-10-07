@@ -23,6 +23,7 @@ int	ft_ps_init(int argc, char **argv, t_ps *ps)
 		return (false);
 	}
 	ps->is_heap_allocated = false;
-	ps->nbr_elements = argc - 1;
+	ps->nbrs_len = argc - 1;
+	ps->nbrs_non_normalized = NULL;
 	return (true);
 }

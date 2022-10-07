@@ -23,6 +23,7 @@
 # define INTEGER_LEN "Invalid input range"
 # define BAD_INPUT "Your input: \n"
 # define MEMORY_ERROR "Error to allocate memory"
+# define REPEATED_NBRS "Duplicate entries are not allowed"
 # define USAGE_MSG "push_swap usage: ./puss_swap n1 n2 n3 ... nn"
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
