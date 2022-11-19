@@ -6,7 +6,7 @@
 /*   By: rfelicio <rfelicio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 19:25:51 by rfelicio          #+#    #+#             */
-/*   Updated: 2022/10/07 20:49:45 by rfelicio         ###   ########.fr       */
+/*   Updated: 2022/11/19 18:09:15 by rfelicio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,22 @@ enum e_error_msg_codes
 };
 
 // Structs
+typedef struct s_stack
+{
+	int				ssize;
+	int				nbr;
+	struct s_stack	*next;
+}	t_stack;
+
 typedef struct s_ps
 {
-	int	fl_error;
-	int	is_heap_allocated;
-	int	nbrs_len;
-	int	*nbrs_non_normalized;
-	int	*nbrs;
+	int		fl_error;
+	int		stacks_are_heap_allocated;
+	int		nbrs_len;
+	int		*nbrs_non_normalized;
+	int		*nbrs;
+	t_stack	**stack_a;
+	t_stack	**stack_b;
 }	t_ps;
 
 typedef struct s_nbr_info
@@ -85,5 +94,12 @@ int			*get_nbrs_from(char **arr, int args, t_ps *ps);
 // Memory
 void		ft_free(void *arr);
 void		ft_doublefree_size(void **arr, int to_be_freed);
+
+// Stack
+int			stacks_allocation(t_ps *ps);
+t_stack		*ft_new_node(int nbr, int ssize);
+t_stack		*get_last_node(t_stack *stack);
+void		ft_stack_add_back(t_stack **stack, t_stack *new);
+void		ft_fill_stack(t_stack **stack, int *nbrs, int len);
 
 #endif

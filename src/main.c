@@ -22,8 +22,16 @@ int	main(int argc, char **argv)
 		ft_error(&ps);
 	if (!nbrs_normalization(&ps))
 		ft_error(&ps);
+	if (!stacks_allocation(&ps))
+		ft_error(&ps);
+	ft_fill_stack(ps.stack_a, ps.nbrs, ps.nbrs_len);
 	ft_free((void *)ps.nbrs_non_normalized);
 	ft_free((void *)ps.nbrs);
+	if (ps.stacks_are_heap_allocated)
+	{
+		ft_doublefree_size((void **)ps.stack_a, ps.nbrs_len);
+		ft_doublefree_size((void **)ps.stack_b, ps.nbrs_len);
+	}
 	ft_putendl_fd("REMOVE THIS MSG!\nFinished without any error!", 1);
 	return (0);
 }

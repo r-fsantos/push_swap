@@ -6,7 +6,7 @@
 /*   By: rfelicio <rfelicio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 19:00:12 by rfelicio          #+#    #+#             */
-/*   Updated: 2022/10/06 23:26:22 by rfelicio         ###   ########.fr       */
+/*   Updated: 2022/10/14 10:12:16 by rfelicio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_ps_init(int argc, char **argv, t_ps *ps)
 		ps->fl_error = e_should_not_display_error;
 		return (false);
 	}
-	ps->is_heap_allocated = false;
+	ps->stacks_are_heap_allocated = false;
 	ps->nbrs_len = argc - 1;
 	ps->nbrs_non_normalized = NULL;
 	return (true);

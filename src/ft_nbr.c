@@ -6,7 +6,7 @@
 /*   By: rfelicio <rfelicio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 22:55:54 by rfelicio          #+#    #+#             */
-/*   Updated: 2022/10/07 07:37:28 by rfelicio         ###   ########.fr       */
+/*   Updated: 2022/11/19 16:54:29 by rfelicio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ t_nbr_info	get_nbr_info(char *nbr)
 	return (ret);
 }
 
-// printf("INT CANDIDATE: %ld\n", int_candidate);
 int	is_integer(char *nbr, int signal)
 {
 	long	int_candidate;
