@@ -6,7 +6,7 @@
 /*   By: rfelicio <rfelicio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 08:50:29 by rfelicio          #+#    #+#             */
-/*   Updated: 2022/11/19 18:08:57 by rfelicio         ###   ########.fr       */
+/*   Updated: 2022/11/19 19:58:46 by rfelicio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	stacks_allocation(t_ps *ps)
 	return (true);
 }
 
-t_stack	*ft_new_node(int nbr, int ssize)
+t_stack	*ft_new_node(int nbr)
 {
 	t_stack	*new;
 
@@ -32,7 +32,6 @@ t_stack	*ft_new_node(int nbr, int ssize)
 	if (!new)
 		return (NULL);
 	new->nbr = nbr;
-	new->ssize = ssize;
 	new->next = NULL;
 	return (new);
 }
@@ -69,7 +68,8 @@ void	ft_fill_stack(t_stack **stack, int *nbrs, int len)
 	i = -1;
 	while (++i < len)
 	{
-		new = ft_new_node(nbrs[i], len);
+		new = ft_new_node(nbrs[i]);
 		ft_stack_add_back(stack, new);
 	}
 }
+

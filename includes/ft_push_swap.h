@@ -6,7 +6,7 @@
 /*   By: rfelicio <rfelicio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 19:25:51 by rfelicio          #+#    #+#             */
-/*   Updated: 2022/11/19 18:09:15 by rfelicio         ###   ########.fr       */
+/*   Updated: 2022/11/19 19:58:58 by rfelicio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ enum e_error_msg_codes
 // Structs
 typedef struct s_stack
 {
-	int				ssize;
 	int				nbr;
 	struct s_stack	*next;
 }	t_stack;
@@ -97,7 +96,7 @@ void		ft_doublefree_size(void **arr, int to_be_freed);
 
 // Stack
 int			stacks_allocation(t_ps *ps);
-t_stack		*ft_new_node(int nbr, int ssize);
+t_stack		*ft_new_node(int nbr);
 t_stack		*get_last_node(t_stack *stack);
 void		ft_stack_add_back(t_stack **stack, t_stack *new);
 void		ft_fill_stack(t_stack **stack, int *nbrs, int len);
