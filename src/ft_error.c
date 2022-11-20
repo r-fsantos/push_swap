@@ -6,7 +6,7 @@
 /*   By: rfelicio <rfelicio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 09:56:36 by rfelicio          #+#    #+#             */
-/*   Updated: 2022/10/06 23:16:24 by rfelicio         ###   ########.fr       */
+/*   Updated: 2022/11/19 21:22:55 by rfelicio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	ft_error(t_ps *ps)
 		ft_putendl_fd(MEMORY_ERROR, 2);
 	if (ps->fl_error == e_has_repeated_nbrs)
 		ft_putendl_fd(REPEATED_NBRS, 2);
+	if (ps->fl_error == e_on_swap)
+		ft_putendl_fd(ON_SWAP, 2);
 	exit(0);
 }
 

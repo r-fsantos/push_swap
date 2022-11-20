@@ -6,7 +6,7 @@
 #    By: rfelicio <rfelicio@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 08:23:33 by rfelicio          #+#    #+#              #
-#    Updated: 2022/10/14 10:27:31 by rfelicio         ###   ########.fr        #
+#    Updated: 2022/11/19 20:03:49 by rfelicio         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,7 @@ SRC			=	$(SRC_DIR)/main.c				\
 				$(SRC_DIR)/ft_mem_dealloc.c		\
 				$(SRC_DIR)/ft_nbr.c				\
 				$(SRC_DIR)/ft_stack.c			\
+				$(SRC_DIR)/ft_swap.c			\
 
 OBJ_DIR		= ./obj
 OBJ			= $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRC))

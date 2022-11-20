@@ -6,7 +6,7 @@
 /*   By: rfelicio <rfelicio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 08:21:21 by rfelicio          #+#    #+#             */
-/*   Updated: 2022/10/07 20:48:16 by rfelicio         ###   ########.fr       */
+/*   Updated: 2022/11/19 21:18:46 by rfelicio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,6 @@ int	main(int argc, char **argv)
 		ft_doublefree_size((void **)ps.stack_a, ps.nbrs_len);
 		ft_doublefree_size((void **)ps.stack_b, ps.nbrs_len);
 	}
-	ft_putendl_fd("REMOVE THIS MSG!\nFinished without any error!", 1);
+	ft_putendl_fd("\nREMOVE THIS MSG!\nFinished without any error!", 1);
 	return (0);
 }

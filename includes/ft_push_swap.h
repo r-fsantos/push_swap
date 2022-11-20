@@ -6,7 +6,7 @@
 /*   By: rfelicio <rfelicio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 19:25:51 by rfelicio          #+#    #+#             */
-/*   Updated: 2022/11/19 19:58:58 by rfelicio         ###   ########.fr       */
+/*   Updated: 2022/11/19 20:36:04 by rfelicio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # define BAD_INPUT "Your input: \n"
 # define MEMORY_ERROR "Error to allocate memory"
 # define REPEATED_NBRS "Duplicate entries are not allowed"
+# define ON_SWAP "On simple swap: sa / sb / ss !"
 # define USAGE_MSG "push_swap usage: ./puss_swap n1 n2 n3 ... nn"
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
@@ -38,12 +39,13 @@ enum e_bool
 
 enum e_error_msg_codes
 {
-	e_no_error,
+	e_no_error = 2,
 	e_should_not_display_error,
 	e_input_must_be_integers,
 	e_invalid_nbr_len,
 	e_mem_allocation,
 	e_has_repeated_nbrs,
+	e_on_swap,
 };
 
 // Structs
@@ -100,5 +102,11 @@ t_stack		*ft_new_node(int nbr);
 t_stack		*get_last_node(t_stack *stack);
 void		ft_stack_add_back(t_stack **stack, t_stack *new);
 void		ft_fill_stack(t_stack **stack, int *nbrs, int len);
+int			ft_stack_size(t_stack **stack);
+
+// Stack operations: sa / sb / ss
+int			sa(t_stack **a);
+int			sb(t_stack **b);
+int			ss(t_stack **a, t_stack **b);
 
 #endif
