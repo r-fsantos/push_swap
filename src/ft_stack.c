@@ -6,31 +6,21 @@
 /*   By: rfelicio <rfelicio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 08:50:29 by rfelicio          #+#    #+#             */
-/*   Updated: 2022/11/19 20:22:17 by rfelicio         ###   ########.fr       */
+/*   Updated: 2022/11/19 22:35:46 by rfelicio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-t_stack	*ft_new_node(int nbr)
+void	ft_stack_add_front(t_stack **stack, t_stack *new)
 {
-	t_stack	*new;
-
-	new = malloc(sizeof(t_stack));
-	if (!new)
-		return (NULL);
-	new->nbr = nbr;
-	new->next = NULL;
-	return (new);
-}
-
-t_stack	*get_last_node(t_stack *stack)
-{
-	if (!stack)
-		return (NULL);
-	while (stack->next)
-		stack = stack->next;
-	return (stack);
+	if (!*stack)
+		*stack = new;
+	else
+	{
+		new->next = *stack;
+		*stack = new;
+	}
 }
 
 void	ft_stack_add_back(t_stack **stack, t_stack *new)

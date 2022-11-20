@@ -6,7 +6,7 @@
 /*   By: rfelicio <rfelicio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 19:25:51 by rfelicio          #+#    #+#             */
-/*   Updated: 2022/11/19 20:36:04 by rfelicio         ###   ########.fr       */
+/*   Updated: 2022/11/19 22:13:46 by rfelicio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,7 @@ void		ft_doublefree_size(void **arr, int to_be_freed);
 int			stacks_allocation(t_ps *ps);
 t_stack		*ft_new_node(int nbr);
 t_stack		*get_last_node(t_stack *stack);
+void		ft_stack_add_front(t_stack **stack, t_stack *new);
 void		ft_stack_add_back(t_stack **stack, t_stack *new);
 void		ft_fill_stack(t_stack **stack, int *nbrs, int len);
 int			ft_stack_size(t_stack **stack);
@@ -108,5 +109,9 @@ int			ft_stack_size(t_stack **stack);
 int			sa(t_stack **a);
 int			sb(t_stack **b);
 int			ss(t_stack **a, t_stack **b);
+
+// Stack operations: pa / pb
+int			pa(t_stack **a, t_stack **b);
+int			pb(t_stack **a, t_stack **b);
 
 #endif
